@@ -10,17 +10,17 @@ const Product = require('../models/products')
 const cors = require('cors')
 app.use(cors())
 
-//este test envía un post correcto, por lo que devuelve un estado 200
+   //Este test devuelve todos los productos, un estado 200
 
-describe('Insert a product: ',()=>{
-    it('should insert a product', (done) => {
+   describe('get all products: ',()=>{
+    it('should get all products', (done) => {
     chai.request(app)
-    .post('/index.html')
-    .send({name:'camisetaNueva', id: 1, price: 1500, description: 'nueva camiseta'})
+    .get('/tienda.html')
     .end( function(err,res){
     console.log(res.body)
     expect(res).to.have.status(200);
+    //res.should.be.html;
     done();
-          });
-      });
-  });
+       });
+    });
+});

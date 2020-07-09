@@ -1,7 +1,7 @@
 'use strict'
 const Product = require('../models/products')
 
-function getProduct(req, res) {
+ function getProduct(req, res) {
     let productId = req.params.productId
     Product.findById(productId, (err, product) => {
         if (err) return res.status(500).send({message:'Error al realizar la petición'})
